@@ -5,7 +5,7 @@ app.controller ('mainController', function ($scope, beers){
 //assign service data and functions to scope object
 
 
-// $scope.newBeer= [];
+    // $scope.newBeer= [];
 //    $scope.addBeer= function(){
     
 //     alert("button works");
