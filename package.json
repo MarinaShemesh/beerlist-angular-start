@@ -1,15 +1,26 @@
 {
   "name": "reddit-fun",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.2",
-    "bootstrap": "^3.3.7"
-  }
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarinaShemesh/beerlist-old.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarinaShemesh/beerlist-old/issues"
+  },
+  "homepage": "https://github.com/MarinaShemesh/beerlist-old#readme",
+  "description": ""
 }
