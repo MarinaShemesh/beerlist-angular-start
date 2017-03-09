@@ -4,7 +4,7 @@ app.service('beers', function(){
           img:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQHnrjPN57ATG1OdT8EK-CCABjrxizna7Hb9MusZcKiR6H1zQMsAw", 
           name:"Kentucky Brunch Brand", 
           style:"Stout", 
-          abv: 4.36,
+          abv: 4.01,
           rating: 4
           },
         
@@ -12,7 +12,7 @@ app.service('beers', function(){
           img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1FkMYyv-S6adwzarKtitQBc7P_KT6sNzjEEXrGDrxcZNdi7q", 
           name:"Very Hazy", 
           style: "IPA", 
-          abv: 4.75,
+          abv: 4.74,
           rating: 2
           },
 
