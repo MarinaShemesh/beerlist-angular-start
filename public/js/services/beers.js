@@ -28,16 +28,16 @@ app.service('beers', function(){
 
   var test = 'this is from the service';
 
-  var addBeer = function(stout){
+  var addBeer = function(stout){//stout is the beerform
     console.log(stout)
     stout.rating = 0;
-    newBeers.push(stout)
+    newBeers.push(stout)//pushing stout/beerform into newBeers
     console.log(newBeers);
      }
 
 return {
     newBeers: newBeers,
-    test: test, //remember the second test is the var above
+    test: test, //remember the second test is the var above// these are key: value pairs
     addBeer:addBeer
 };
 });
