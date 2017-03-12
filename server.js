@@ -1,5 +1,4 @@
 var express = require('express');
-// var Beer = require('./public...')
 var app = express();
 
 var mongoose = require('mongoose');
@@ -45,13 +44,8 @@ app.listen('8000', function() {
 //   });
 // });
 
-// app.delete('/beers/:id', function(req, res, next) {
-//   console.log(req.param.id);
-//   res.send("In the delete route");
-// });
-
-// app.delete('/beers/:id', function(req, res, next) {
-//   Beer.remove({ _id: req.param.id }, function(err) {
+// app.delete('/beers/:id', function(req, res, next) { //note that it should be "params"
+//   Beer.remove({ _id: req.params.id }, function(err) {
 //     if (err) {
 //       console.error(err)
 //       return next(err);
@@ -61,14 +55,31 @@ app.listen('8000', function() {
 //   });
 // });
 
+
 // app.put('/beers/:id', function(req, res, next) {
 //   console.log(req.params.id);
 //   console.log(req.body);
 //   res.send(req.body);
 // });
 
+// app.put('/beers/:id', function(req, res, next) {
+//   Beer.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, beer) {
+//     if (err) {
+//       console.error(err)
+//       return next(err);
+//     } else {
+//       res.send(beer);
+//     }
+//   });
+// });
+
 app.put('/beers/:id', function(req, res, next) {
-  console.log(req.params.id);
-  console.log(req.body);
-  res.send(req.body);
+  Beer.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, beer) {
+    if (err) {
+      console.error(err)
+      return next(err);
+    } else {
+      res.send(beer);
+    }
+  });
 });

@@ -12,8 +12,8 @@
          <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h1 class="text-center">BeerList
-                 <i class="fa fa-beer" aria-hidden="true"></i>
-                </h1>
+                 <i class="fa fa-beer fa-flip-horizontal fa-4x" aria-hidden="true"></i>
+                </h1> 
                 <div class="page-header">
                 </div>
                 <!-- render beers here -->
@@ -46,7 +46,9 @@
                     </div>
                     <button ng-click ="addBeer(beerForm)" type="button" class="btn btn-primary">Add</button>
 
-                     <div ng-repeat ="item in newBeers track by $index">
+                     <div ng-repeat ="item in newBeers track by $index"
+                      ng-model="deleted">
+                      <button class="btn btn-danger" ng-click ="remove($index)">Remove</button>                      
                           <img ng-src="{{item.img}}"/>
                           <p><h3>{{item.name}}</h3></p>
                           <p>{{item.style}}</p>

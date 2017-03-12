@@ -37,8 +37,8 @@ app.service('beers', function(){
 
 return {
     newBeers: newBeers,
-    test: test, //remember the second test is the var above// these are key: value pairs
-    addBeer:addBeer
+    test: test, //remember the second test is the var above
+    addBeer:addBeer // these are key: value pairs
 };
 });
 //define the functions
