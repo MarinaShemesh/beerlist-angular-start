@@ -2,11 +2,10 @@ app.controller ('mainController', function ($scope, beers){
 
   $scope.newBeers = beers.newBeers;
   $scope.addBeer = beers.addBeer;
+  $scope.remove = beers.remove;
+
   
-  $scope.remove = function(index){
-    $scope.newBeers.splice(index, 1);
-    };
-//assign service data and functions to scope object
+//the controller assign service data and functions to scope objects
 
 
     // $scope.newBeer= [];
@@ -23,5 +22,6 @@ app.controller ('mainController', function ($scope, beers){
 
 //     beers.addBeer(newBeer);
 //  }
+beers.getBeers()
  });
  
