@@ -34,30 +34,64 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Image URL" ng-model="beerForm.image"></input>
-                    </div>
-                    <div class="form-group"><p>Rating:</p>
-                        <select class="rating" id="select">
-                            <option value=1>1</option>
-                            <option value=2>2</option>
-                            <option value=3>3</option>
-                            <option value=4>4</option>
-                            <option value=5>5</option>
-                        </select>
-                    </div>
+                    </div>                    
                     <button ng-click ="addBeer(beerForm)" type="button" class="btn btn-primary">Add</button>
                 </form>
 
 
                 <div ng-repeat ="item in newBeers track by $index"
                   ng-model="deleted">
-                  <button class="btn btn-danger" ng-click ="remove(item._id)">Remove</button>                                   
-                    <img ng-src="{{item.img}}"/>
-                      <p><h3>{{item.name}}</h3></p>
-                      <p>{{item.style}}</p>
-                      <p>ABV: {{item.abv}}</p>
-                      <p>Rating:{{item.rating}}</p>  
+                  <button class="btn btn-danger" ng-click ="remove(item._id)">Remove</button>
+                  <button class="btn btn-warning" ng-click ="editBeers(item)">Edit input</button>
+                  <button class="btn btn-success" ng-click ="updateBeer(item)">Save</button>
+                  <button class="btn btn-danger" ng-click ="isEditable = false">Cancel</button>
+
+                  <!-- form start -->
+                  <form ng-show ="isEditable">
+
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Beer Name" ng-model="beerCopy.name"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Beer Style" ng-model="beerCopy.style"></input>
+                    </div>
+                     
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Beer ABV" ng-model="beerCopy.abv"></input>
+                    </div>
+
+                    </form>
+                   <!--  form end -->
+
+                   <img ng-src="{{item.img}}"/>
+
+                   <!-- display start -->
+                     <div ng-hide="isEditable" class="ales">
+                       <p><h3>{{item.name}} </h3></p>
+                       <p>Style: {{item.style}} </p>
+                       <p>ABV:{{item.abv}} </p>
+                    </div>       
+                   <!-- display end -->
+
+                   <p>Rating:{{item.rating}} </p>                       
+                  </div> 
+
+                  
+                      <div class="form-group"><p>Rating:</p>
+                        <input class="star" type="checkbox"/>
+                        <label for="st1" ng-click="rate(beer, 5)"></label>
+                        <input class="star" type="checkbox" />
+                        <label for="st2" ng-click="rate(beer, 4)"></label>
+                        <input class="star" type="checkbox" >
+                        <label for="st3" ng-click="rate(beer, 3)"></label>
+                        <input class="star" type="checkbox" />
+                        <label for="st4" ng-click="rate(beer, 2)"></label>
+                        <input class="star" type="checkbox" />
+                        <label for="st5" ng-click="rate(beer, 1)"></label>                        
+                    </div> 
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -65,6 +99,7 @@
     <script src="js/app.js"></script>
     <script src="js/services/beers.js"></script>
     <script src="js/controllers/mainController.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
 </body>
 
 </html>

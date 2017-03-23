@@ -31,13 +31,49 @@ app.service('beers', function($http){
      })
     };
 
+  var rate = function(beer,value){
+    beer = angular.copy(beer);
+    beer.rating.push(value)
+     $http.put('/beers' + beer._id, beer) 
+    .then(function() {
+      getBeers(); //this is the push
+      
+    }, function(err) {
+      console.error(err)
+    });
+
+  }
+
+   var updateBeer = function(beer) {
+    return $http.put('/beers/' + beer._id, beer)
+      .then(function(response) {
+        return response.data
+        console.log("this is from the service" + beer);
+      });
+  };
+
+  
+// var save = function(updates){ - ask Brandon to help from here
+//   console.log(updates);
+
+//    $http.put ('/beers'){
+
+//     name: { type: String },
+//     style: { type: String },
+//     image_url: { type: String },
+//     abv: {type: Number}
+    
+//     }
 
 var tempObj = {
     newBeers: newBeers,
     test: test,   //remember the second test is the var above
     addBeer:addBeer,
     remove:remove,
-    getBeers: getBeers // these are key: value pairs
+    getBeers: getBeers,
+    rate:rate,
+    updateBeer: updateBeer
+    // save:save // these are key: value pairs
 };
 
 return tempObj;

@@ -51,7 +51,7 @@ app.delete('/beers/:id', function(req, res, next) {
 
 
 app.put('/beers/:id', function(req, res, next) {
-  Beer.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, beer) {
+  Beer.findByIdAndUpdate({ _id: req.params.id }, req.body, function(err, beer) {
     if (err) {
       console.error(err)
       return next(err);
@@ -72,7 +72,7 @@ app.use(function(req, res, next) {
 // warning - not for use in production code!
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.send('error', {
     message: err.message,
     error: err
   });
