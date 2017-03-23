@@ -12,13 +12,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
-app.get('/beers', function (req, res, next) {
+app.get('/beers', function (req, res, next) {//this is ALL the beers
   Beer.find(function (error, beers) {
     if (error) {
       console.error(error)
       return next(error);
     } else {
       res.send(beers);
+    }
+  });
+});
+
+app.get('/beer/:id', function(req, res, next) {//this is the beers by IDs
+  Beer.findById(req.params.id, function(error, beer) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(beer);
     }
   });
 });

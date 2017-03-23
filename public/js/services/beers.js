@@ -1,7 +1,7 @@
 app.service('beers', function($http){
   var newBeers = [];
 
-  var getBeers = function() {
+  var getBeers = function() { ///this is ALL the beers
   return $http.get('/beers')
     .then(function(response) {
       angular.copy(response.data, newBeers);//this is the push
@@ -13,7 +13,7 @@ app.service('beers', function($http){
 
   var test = 'this is from the service';
 
-  var addBeer = function(newBeers){//stout is the beerform
+  var addBeer = function(newBeers){
   return $http.post ('/beers',newBeers) 
     .then(function(response) {
       getBeers(); //this is the push
@@ -52,18 +52,14 @@ app.service('beers', function($http){
       });
   };
 
-  
-// var save = function(updates){ - ask Brandon to help from here
-//   console.log(updates);
-
-//    $http.put ('/beers'){
-
-//     name: { type: String },
-//     style: { type: String },
-//     image_url: { type: String },
-//     abv: {type: Number}
-    
-//     }
+ var getBeer = function(id) { //this is for the beer state
+  return $http.get('/beers/' + id)
+    .then(function(response) {
+      return response.data
+     }, function(err) {
+      console.error(err)
+    });
+};
 
 var tempObj = {
     newBeers: newBeers,
@@ -72,7 +68,8 @@ var tempObj = {
     remove:remove,
     getBeers: getBeers,
     rate:rate,
-    updateBeer: updateBeer
+    updateBeer: updateBeer,
+    getBeer: getBeer
     // save:save // these are key: value pairs
 };
 
