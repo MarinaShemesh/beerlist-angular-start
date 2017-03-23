@@ -4,6 +4,7 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
   $stateProvider
     .state('home', {
       url: '/home',
+      controller: 'mainController',
       templateUrl: '/templates/home.html'
     })
     .state('beer', {
