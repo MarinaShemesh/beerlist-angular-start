@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/beers');
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/beers');
 var Beer = require("./models/BeerModel");
 
 var bodyParser = require('body-parser')
@@ -89,6 +89,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen('8000', function() {
+app.listen( process.env.PORT || '8000', function() {
   console.log("Listening on port 8000");
 })
