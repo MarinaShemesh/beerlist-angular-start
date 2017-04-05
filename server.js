@@ -90,5 +90,5 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen( process.env.PORT || '8000', function() {
-  console.log("Listening on port 8000");
+  console.log("Listening on port "+ process.env.PORT||"8000");
 })
